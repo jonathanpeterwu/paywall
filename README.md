@@ -5,13 +5,13 @@ Bitcoin as a backend Service
 venmo like purchase/transfers * phone numbers || emails || wallet #
 
 
-![](https://www.dropbox.com/s/leebqjwf01hpgmu/Screenshot%202014-08-02%2015.57.25.png)
+![Imgur](http://i.imgur.com/9EbdA6E.png)
 customer 1  $$ + 1% -->   bitcoin   -->  $$ customer 2
           dollar holdings ==  bitcoin holding == dollar holdings
                     IP LAYER
           
 
-![](https://www.dropbox.com/s/ahmik32j5dwps2u/Screenshot%202014-08-02%2015.57.20.png)
+![Imgur](http://i.imgur.com/ilLKhmP.png)
 
 MVP
 
@@ -52,7 +52,7 @@ Bitcoin
 - namespaced wallets - onename.io
 -coinbase
 - secure wallet - https://darkwallet.is/
-![](https://www.dropbox.com/s/oar7d0b6olp1ksq/Screenshot%202014-08-02%2015.57.44.png)
+![Imgur](http://i.imgur.com/ziJGfWW.png)
 - debit card -https://xapo.com/in/campaign/debit/
 - credit card - chase
 - 
