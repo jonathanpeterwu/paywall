@@ -1,0 +1,35 @@
+{
+  "name": "paywall-api",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha ./test/*"
+  },
+  "dependencies": {
+    "swig": "~1.4.2",
+    "co-body": "0.0.1",
+    "co-views": "0.2.0",
+    "co-monk": "1.0.0",
+    "commander": "~2.2.0",
+    "debug": "*",
+    "koa": "~0.6.1",
+    "koa-compress": "1.0.7",
+    "koa-logger": "^1.2.2",
+    "koa-ratelimit": "~1.0.3",
+    "koa-resource-router": "^0.3.3",
+    "koa-response-time": "~1.0.2",
+    "koa-route": "2.0.0",
+    "bitcoinjs-lib": "~1.0.2",
+    "redis": "~0.10.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.16.2",
+    "supertest": "~0.8.2",
+    "should": "~2.1.1"
+  },
+  "license": "MIT"
+}

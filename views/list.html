@@ -1,0 +1,8 @@
+<h1>Wallets</h1>
+<ul>
+{% for wallet in wallets %}
+  <li{% if loop.first %} class="first"{% endif %}>
+    {{ id }}
+  </li>
+{% endfor %}
+</ul>

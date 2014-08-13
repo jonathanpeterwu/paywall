@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>PayWall: Pay Your Way</title>
+		<meta name="description" content="Payment Freedom">
+		<meta name="viewport" content="width=device-width">
+		<meta name="og:site_name" content="PAYWALL">
+		<meta name="og:title" content="Payment Freedom">
+		<meta name="og:url" content="http://spot.com/">
+		<meta name="og:description" content="Payment Freedom">
+		<meta property="og:image" content="http://spot.com/public/images/logo.png">
+		<!-- <meta name="fb:app_id" content="220090911514579"> -->
+
+    <!-- <link rel="stylesheet" href="./stylesheets/style.css/" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="./stylesheets/main.css/" type="text/css"> -->
+  	<!-- <link rel="stylesheet" href="./stylesheets/fonts.css/" type="text/css"> -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+		<script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script language="javascript" type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<style>
+
+
+			body {
+		    background-image: url("http://imgur.com/IQYukjI.png");
+			}
+
+			.signup {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-top: -150px;
+				margin-left: -150px;
+				height: 100px;
+				width: 300px;
+				text-align: center;
+			}
+
+			.paywall-title {
+				color: white;
+				font-size: 2.4em;
+			}
+
+			.paywall-description {
+				padding-top: 10%;
+				color: white;
+				font-size: 1.0em;
+			}
+
+			.w {
+				color: green;
+			}
+
+			.form-inline {
+				padding-top: 5%;
+			}
+
+			.waitlist {
+				opacity: 0.8;
+				height: 35px;
+			}
+
+			.form-group {
+				display: inline-block;
+			}
+
+		</style>
+</head>
+
+<body>
+	<div class="signup">
+		<div class="paywall-title">PAY <span class="w">W</span>ALL</div>
+		<div class="paywall-description">Payments Your Way. Payment Freedom</div>
+
+		<form class="form-inline" role="form" method="post" action="/beta-signup">
+			<div class="form-group">
+				<input type="email" class="form-control email" name="email" placeholder="Enter email">
+				<input type="hidden" name="location" value="{&quot;range&quot;:[1204432256,1204432895],&quot;country&quot;:&quot;US&quot;,&quot;region&quot;:&quot;CA&quot;,&quot;city&quot;:&quot;San Francisco&quot;,&quot;ll&quot;:[37.7957,-122.4209],&quot;latitude&quot;:37.7957,&quot;longitude&quot;:-122.4209}">
+			</div>
+			<a href="./send.html"
+			<button type="submit" class="btn btn-primary waitlist">Join Waitlist</button>
+			</a>
+
+		</form>
+
+</body>
+
+</html>
