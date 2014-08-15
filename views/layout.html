@@ -1,1 +1,132 @@
-layout.html
+<html>
+  <head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>PayWall: Pay Your Way</title>
+		<meta name="description" content="Payment Freedom">
+		<meta name="viewport" content="width=device-width">
+		<meta name="og:site_name" content="PAYWALL">
+		<meta name="og:title" content="Payment Freedom">
+		<meta name="og:url" content="http://spot.com/">
+		<meta name="og:description" content="Payment Freedom">
+		<meta property="og:image" content="http://spot.com/public/images/logo.png">
+		<!-- <meta name="fb:app_id" content="220090911514579"> -->
+
+    <!-- <link rel="stylesheet" href="./stylesheets/style.css/" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="./stylesheets/main.css/" type="text/css"> -->
+  	<!-- <link rel="stylesheet" href="./stylesheets/fonts.css/" type="text/css"> -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+		<script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script language="javascript" type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<style>
+
+		body {
+	    background-image: url("http://imgur.com/IQYukjI.png");
+      padding: 80px;
+      font: 16px Helvetica, Arial;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: white;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      color: white;
+    }
+
+    p {
+    	color: grey;
+    }
+
+    		.signup {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-top: -150px;
+				margin-left: -150px;
+				height: 100px;
+				width: 300px;
+				text-align: center;
+			}
+
+			.paywall-title {
+				color: white;
+				font-size: 2.4em;
+			}
+
+			.paywall-description {
+				padding-top: 10%;
+				color: white;
+				font-size: 1.0em;
+			}
+
+			.w {
+				color: green;
+			}
+
+			.form-inline {
+				padding-top: 5%;
+			}
+
+			.waitlist {
+				opacity: 0.8;
+				height: 35px;
+			}
+
+			.form-group {
+				display: inline-block;
+			}
+
+
+    #posts {
+      margin: 0;
+      padding: 0;
+    }
+
+    #posts li {
+      margin: 40px 0;
+      padding: 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      list-style: none;
+    }
+
+    #posts li:last-child {
+      border-bottom: none;
+    }
+
+    textarea {
+      width: 500px;
+      height: 300px;
+    }
+
+    input[type=text],
+    textarea {
+      border: 1px solid #eee;
+      border-top-color: #ddd;
+      border-left-color: #ddd;
+      border-radius: 2px;
+      padding: 15px;
+      font-size: .8em;
+    }
+
+    input[type=text] {
+      width: 500px;
+    }
+
+		</style>
+	</head>
+  <body>
+	  <section id="content">
+	    {% block content %}
+	      <p>Missing content!</p>
+	    {% endblock %}
+	  </section>
+  </body>
+</html>
+
+

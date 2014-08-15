@@ -8,6 +8,7 @@ var parse = require('co-body');
 var koa = require('koa');
 var bitcoin = require('bitcoinjs-lib');
 var view = require('co-views');
+
 var app = koa();
 
 // "database"
@@ -16,16 +17,19 @@ var wallets = [];
 // "middleware"
 app.use(logger());
 
-// "route middleware"
-
+// "route middleware" - routes
 app.use(route.get('/', beta));
-app.use(route.get('/wallet/new', add));
-app.use(route.get('/wallet/:id', show));
-app.use(route.post('/post', create));
-
-// "route for beta signup"
+app.use(route.get('/wallets/new', add));
+app.use(route.get('/wallets/:id', show));
+app.use(route.get('/wallets', list));
+app.use(route.post('/wallets', create));
 app.use(route.get('/signup', beta));
+app.use(route.get('/admin', admin));
 
+
+function *admin() {
+	this.body = yield render('admin');
+}
 
 function *list() {
   this.body = yield render('list', { wallets: wallets });
@@ -43,12 +47,14 @@ function	*show(id) {
 
 function	*create(){
 	var wallet = yield parse(this);
-	var id = posts.push(post) - 1;
+	var id = wallets.push(wallet) - 1;
   key = bitcoin.ECKey.makeRandom()
-	post.created_at = new Date;
-	post.id = id;
-	post.key = key
-  this.redirect('/');
+	wallet.created_at = new Date;
+	wallet.id = id;
+	wallet.key = key
+	wallet.publickey = key.pub.getAddress().toString()
+	wallet.privatekey = key.toWIF()
+  this.redirect("/wallets");
 }
 
 function *beta() {
@@ -63,5 +69,4 @@ function *beta() {
 // });
 
 app.listen(3000);
-console.log("This Koa site is now running at http://localhost:3000");
-console.log("Hit it with /bitwall/create || /bitwall/new");
+console.log("goto localhost:3000 and Hit it with /bitwall/create || /bitwall/new");

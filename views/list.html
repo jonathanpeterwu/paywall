@@ -1,8 +1,19 @@
-<h1>Wallets</h1>
-<ul>
-{% for wallet in wallets %}
-  <li{% if loop.first %} class="first"{% endif %}>
-    {{ id }}
-  </li>
-{% endfor %}
-</ul>
+{% extends 'layout.html' %}
+
+{% block title %}Wallets{% endblock %}
+
+{% block content %}
+
+	<h1>Wallets</h1>
+	<p> There are <strong> {{ wallets.length}}</strong> wallets! </p>
+	<ul>
+	{% for wallet in wallets %}
+		<li>
+			<p> {{wallet.name}}</p>
+			<p> {{wallet.email}}</p>
+			<p><a href="/wallets/{{wallet.id}}">See Wallet</a></p>
+	  </li>
+	{% endfor %}
+	</ul>
+
+{% endblock %}

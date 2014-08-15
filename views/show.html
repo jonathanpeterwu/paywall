@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ wallet.name }}{% endblock %}
+
+{% block content %}
+  <h1>{{ wallet.name }}</h1>
+  <h1>{{ wallet.email }}</h1>
+  <p>{{ wallet.publickey }}</p>
+{% endblock %}
