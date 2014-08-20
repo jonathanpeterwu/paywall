@@ -5,11 +5,15 @@ var render = require('./lib/render');
 var logger = require('koa-logger');
 var route = require('koa-route');
 var parse = require('co-body');
+var request = require('request');
 var koa = require('koa');
 var bitcoin = require('bitcoinjs-lib');
 var view = require('co-views');
+var Keen = require('keen.io');
 
 var app = koa();
+
+
 
 // "database"
 var wallets = [];
@@ -27,11 +31,28 @@ app.use(route.get('/signup', beta));
 app.use(route.get('/admin', admin));
 
 
+
 function *admin() {
 	this.body = yield render('admin');
 }
 
 function *list() {
+	request(keenRoute, function(error, res, body) {
+		if(!error && res.statusCode == 200){
+			 var body = JSON.parse(body)
+			 var results = body["result"]
+			 for(var i=0; i < results.length; i++){
+			 	 var result = results[i]
+			 	 if(parseInt(result["id"]) == wallets.length){
+			 	 		wallets.push(result)
+			 	 		console.log(wallets.length)
+			 	 } else {
+			 	 		console.log('wallet already in db')
+			 	 }
+			 }
+		}
+	})
+
   this.body = yield render('list', { wallets: wallets });
 }
 
@@ -54,8 +75,24 @@ function	*create(){
 	wallet.key = key
 	wallet.publickey = key.pub.getAddress().toString()
 	wallet.privatekey = key.toWIF()
+	var object = {}
+	object.name = wallet.name.toString(),
+	object.email = wallet.email.toString(),
+	object.id = wallet.id.toString(),
+	object.created_at = wallet.created_at.toString()
+	object.key = wallet.key.toString()
+	object.publickey = wallet.publickey.toString()
+	object.privatekey = wallet.privatekey.toString()
+	client.addEvent('wallets', JSON.stringify(object, null, 4), function(err, res) {
+		if(err) {
+			console.log('An error!', err);
+		} else {
+			console.log("Keen Collection worked!")
+		}
+	})
   this.redirect("/wallets");
 }
+
 
 function *beta() {
 	this.body = yield render('beta');

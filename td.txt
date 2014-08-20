@@ -1,0 +1,9 @@
+This Week
+------------
+[x] - store wallets in keen
+[] - query wallets from keen
+[] - query wallets only by user
+[] - create users
+
+Next Week
+-----------

@@ -13,7 +13,6 @@
     "swig": "~1.4.2",
     "co-body": "0.0.1",
     "co-views": "0.2.0",
-    "jade": "1.5.0",
     "co-monk": "1.0.0",
     "commander": "~2.2.0",
     "debug": "*",
@@ -24,8 +23,10 @@
     "koa-resource-router": "0.3.3",
     "koa-response-time": "~1.0.2",
     "koa-route": "2.0.0",
+    "request": "2.40.0",
     "bitcoinjs-lib": "~1.0.2",
-    "redis": "~0.10.3"
+    "redis": "~0.10.3",
+    "keen.io": "0.1.2"
   },
   "devDependencies": {
     "mocha": "~1.16.2",
