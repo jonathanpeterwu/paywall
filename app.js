@@ -10,6 +10,7 @@ var koa = require('koa');
 var bitcoin = require('bitcoinjs-lib');
 var view = require('co-views');
 var Keen = require('keen.io');
+var co = require('co')
 
 var app = koa();
 
@@ -30,30 +31,51 @@ app.use(route.post('/wallets', create));
 app.use(route.get('/signup', beta));
 app.use(route.get('/admin', admin));
 
-
+function *readWallets() {
+	var count = new Keen.Query("count", {
+	  event_collection: "wallets",
+  	timeframe: "this_7_days"
+	});
+	client.run(count, function(err, response){
+  	if (err) return console.log(err);
+  	result = response.result
+  	console.log(result)
+	});
+}
 
 function *admin() {
 	this.body = yield render('admin');
 }
 
-function *list() {
-	request(keenRoute, function(error, res, body) {
-		if(!error && res.statusCode == 200){
-			 var body = JSON.parse(body)
-			 var results = body["result"]
-			 for(var i=0; i < results.length; i++){
-			 	 var result = results[i]
-			 	 if(parseInt(result["id"]) == wallets.length){
-			 	 		wallets.push(result)
-			 	 		console.log(wallets.length)
-			 	 } else {
-			 	 		console.log('wallet already in db')
-			 	 }
-			 }
-		}
-	})
 
-  this.body = yield render('list', { wallets: wallets });
+// co(function *(){
+// 	var a = yield keenQuery
+// 	var res = yield a
+// 	console.log(res)
+// })
+
+
+
+function keenQuery(){
+	return request(keenRoute, function(error, res, body) {
+			if(!error && res.statusCode == 200){
+				 var body = JSON.parse(body)
+				 var results = body["result"]
+				 for(var i=0; i < results.length; i++){
+				 	 var result = results[i]
+				 	 if(parseInt(result["id"]) == wallets.length){
+				 	 		wallets.push(result)
+				 	 		console.log(wallets.length)
+				 	 } else {
+				 	 		console.log('wallet already in db')
+				 	 }
+				 }
+			}
+	})
+}
+function *list() {
+		keenQuery()
+  	this.body = yield render('list', { wallets: wallets});
 }
 
 function	*add() {
