@@ -24,7 +24,7 @@
     "koa-resource-router": "0.3.3",
     "koa-response-time": "~1.0.2",
     "koa-route": "2.0.0",
-    "request": "2.40.0",
+    "request": "2.88.0",
     "bitcoinjs-lib": "~1.0.2",
     "redis": "~0.10.3",
     "keen.io": "0.1.2"
